@@ -28,8 +28,14 @@ Run the underlying script with `--force` after:
 - large IDE-driven refactor that bypassed Claude's edit tools
 
 ```bash
+# plain Python
 python3 scripts/generate_codemap.py . --force
+
+# uv-managed project
+uv run python scripts/generate_codemap.py . --force
 ```
+
+The script is stdlib-only, so either invocation works. Use `uv run` when your project pins Python via `uv` and you want toolkit commands to honor the project's interpreter.
 
 ## What this does NOT replace
 

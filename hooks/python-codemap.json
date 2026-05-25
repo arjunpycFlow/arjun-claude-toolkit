@@ -1,7 +1,7 @@
 {
   "_name": "python-codemap",
-  "_description": "Auto-regenerates .claude/codemap.md on file writes and session start. Python projects only.",
-  "_install_notes": "Bootstrap first: python3 scripts/generate_codemap.py . --force",
+  "_description": "Auto-regenerates .claude/codemap.md on file writes and session start. Python projects only. Auto-detects uv.",
+  "_install_notes": "Bootstrap first: python3 scripts/generate_codemap.py . --force  (or: uv run python scripts/generate_codemap.py . --force)",
   "hooks": {
     "PostToolUse": [
       {
@@ -9,7 +9,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "[ -f scripts/generate_codemap.py ] && python3 scripts/generate_codemap.py . --trigger-file \"$TOOL_INPUT_file_path\" || true",
+            "command": "[ -f scripts/generate_codemap.py ] && { if [ -f uv.lock ] && command -v uv >/dev/null 2>&1; then uv run python scripts/generate_codemap.py . --trigger-file \"$TOOL_INPUT_file_path\"; else python3 scripts/generate_codemap.py . --trigger-file \"$TOOL_INPUT_file_path\"; fi; } || true",
             "async": true,
             "timeout": 15000
           }
@@ -21,7 +21,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "[ -f scripts/generate_codemap.py ] && python3 scripts/generate_codemap.py . --force || true",
+            "command": "[ -f scripts/generate_codemap.py ] && { if [ -f uv.lock ] && command -v uv >/dev/null 2>&1; then uv run python scripts/generate_codemap.py . --force; else python3 scripts/generate_codemap.py . --force; fi; } || true",
             "timeout": 30000
           }
         ]

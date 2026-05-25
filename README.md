@@ -29,6 +29,18 @@ toolkit remove hook  python-codemap
 toolkit remove agent python-code-reviewer
 ```
 
+## Running Python helpers — plain or `uv`
+
+Skills that ship Python scripts (e.g. `python-codemap`) work with either invocation. All such scripts are **stdlib-only** by design, so plain `python3` always works. Use `uv run` when the target project pins its Python via `uv` and you want the toolkit to honor that interpreter.
+
+| Context              | Plain Python                                            | uv-managed project                                            |
+| -------------------- | ------------------------------------------------------- | ------------------------------------------------------------- |
+| Bootstrap codemap    | `python3 scripts/generate_codemap.py . --force`         | `uv run python scripts/generate_codemap.py . --force`         |
+| Manual refresh       | `python3 scripts/generate_codemap.py . --force`         | `uv run python scripts/generate_codemap.py . --force`         |
+| Hook (automatic)     | Auto-detects: uses `uv run python` if `uv.lock` exists and `uv` is on PATH; otherwise falls back to `python3`. | Same — no config needed. |
+
+Rule of thumb: if `uv.lock` is present in the target project, prefer `uv run python`. The hook handles this automatically; you only need to pick the right form when running scripts by hand.
+
 ## Available tools
 
 ### Skills

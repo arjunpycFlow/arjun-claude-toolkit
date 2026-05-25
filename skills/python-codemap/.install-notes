@@ -1,6 +1,9 @@
 python-codemap install notes
 ============================
-1. Bootstrap once: python3 scripts/generate_codemap.py . --force
+1. Bootstrap once:
+     plain Python:  python3 scripts/generate_codemap.py . --force
+     uv project:    uv run python scripts/generate_codemap.py . --force
+   (Script is stdlib-only — either works. Use uv if your project is uv-managed.)
 2. Add to .gitignore: .claude/codemap.md, .claude/.codemap_hashes.json, .claude/.codemap_data.json
 3. In your project CLAUDE.md add a "## Codebase Map" block telling Claude to consult .claude/codemap.md before multi-file work.
 4. Install the python-codemap hook (pull.sh add hook python-codemap) to keep the map fresh on edits.
