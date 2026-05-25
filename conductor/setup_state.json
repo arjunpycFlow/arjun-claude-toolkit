@@ -1,0 +1,41 @@
+{
+  "status": "complete",
+  "project_type": "brownfield",
+  "completed_sections": ["product", "guidelines", "tech_stack", "workflow", "tracks"],
+  "files_created": [
+    "conductor/index.md",
+    "conductor/product.md",
+    "conductor/product-guidelines.md",
+    "conductor/tech-stack.md",
+    "conductor/workflow.md",
+    "conductor/tracks.md",
+    "conductor/tracks/A-scaffold/spec.md",
+    "conductor/tracks/A-scaffold/plan.md",
+    "conductor/tracks/B-codemap-skill/spec.md",
+    "conductor/tracks/B-codemap-skill/plan.md",
+    "conductor/tracks/C-git-conventions/spec.md",
+    "conductor/tracks/C-git-conventions/plan.md",
+    "conductor/tracks/D-codemap-hook/spec.md",
+    "conductor/tracks/D-codemap-hook/plan.md",
+    "conductor/tracks/E-reviewer-agent/spec.md",
+    "conductor/tracks/E-reviewer-agent/plan.md",
+    "conductor/tracks/F-pull-cli/spec.md",
+    "conductor/tracks/F-pull-cli/plan.md",
+    "conductor/tracks/G-readme/spec.md",
+    "conductor/tracks/G-readme/plan.md",
+    "conductor/tracks/H-test-sequence/spec.md",
+    "conductor/tracks/H-test-sequence/plan.md",
+    "conductor/tracks/I-commit/spec.md",
+    "conductor/tracks/I-commit/plan.md"
+  ],
+  "tracks_completed": ["A", "B", "C", "D", "E", "F", "G", "H"],
+  "tracks_pending": ["I"],
+  "started_at": "2026-05-22T00:00:00Z",
+  "last_updated": "2026-05-24T00:00:00Z",
+  "detected": {
+    "language": "Python 3.14",
+    "package_manager": "uv",
+    "dev_deps": ["pytest>=9.0.3", "ruff>=0.15.14"],
+    "name": "arjun-claude-toolkit"
+  }
+}
